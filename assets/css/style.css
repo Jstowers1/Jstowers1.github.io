@@ -33,6 +33,11 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.rightSide {
+  text-align:right;
+}
+
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -528,6 +533,7 @@ section {
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
+  width: calc(100vw - 750px);
   margin-top: -2px;
   border-left: 2px solid #0563bb;
   position: relative;
@@ -563,6 +569,8 @@ section {
 .resume .resume-item:last-child {
   padding-bottom: 0;
 }
+
+
 
 .resume .resume-item::before {
   content: "";
