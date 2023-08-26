@@ -485,7 +485,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
 .skills .progress {
   height: 60px;
@@ -533,13 +533,22 @@ section {
 
 .resume .resume-item {
   padding: 0 0 20px 20px;
-  width: calc(100vw - 750px);
+  width: calc(100vw*0.75);
   margin-top: -2px;
   border-left: 2px solid #0563bb;
   position: relative;
 }
 
-.resume .resume-item h4 {
+.resumeDiv{
+  padding: 0 0 20px 20px;
+  width: calc(100vw*0.5);
+  margin-top: -2px;
+  border-left: 2px solid #0563bb;
+  display: inline-block;
+  position: relative;
+}
+
+.resume .resumeDiv h4 {
   line-height: 18px;
   font-size: 18px;
   font-weight: 600;
@@ -549,15 +558,33 @@ section {
   margin-bottom: 10px;
 }
 
-.resume .resume-item h5 {
+.resume .resumeDiv h5 {
   font-size: 16px;
   background: #f7f8f9;
   padding: 5px 15px;
-  display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
+.resume date{
+  display: inline-flex;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 30px;
+  margin-bottom: 5px;
+  width:100%;
+  text-align: right;
+}
+
+.resume schoolDate{
+  display: inline-flex;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 30px;
+  margin-bottom:1px;
+  width:100%;
+  text-align: right;
+}
 .resume .resume-item ul {
   padding-left: 20px;
 }
