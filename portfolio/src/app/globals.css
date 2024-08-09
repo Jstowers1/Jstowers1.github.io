@@ -1,0 +1,25 @@
+.basicTabBG{
+  background-color:#bfc3c9;
+  padding: 20px;
+  border-radius: 25px 25px 25px 25px;
+  max-height: 83vh;
+  min-height: 83vh;
+  min-width: 1vw;
+}
+
+.leftContainer{
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.leftContainer::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.leftContainer div {
+  scroll-snap-align: start;
+  background-size: cover;
+  height: 100%;
+}
