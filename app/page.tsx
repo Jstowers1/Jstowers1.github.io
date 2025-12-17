@@ -2,6 +2,7 @@ import TextRotator            from "./components/TextRotator";
 import CompetitiveProgramming from "./components/CompetitiveProgramming";
 import ExperienceLog          from "./components/ExperienceLog";
 import Education              from "./components/Education"; 
+import Certifications         from "./components/Certifications"; 
 import ProjectCard            from "./components/ProjectCard";
 import ContactSection         from "./components/ContactSection";
 
@@ -10,7 +11,7 @@ export default function Home() {
   const projects = [
     {
       title: "Secure Login System",
-      description: "A full-stack authentication system focusing on SQL injection prevention and secure session management. I utilized MariaDB for storage and Flask for the backend logic.",
+      description: "A full-stack authentication system focusing on SQL injection prevention and secure database management. I utilized MariaDB for storage and Flask for the backend logic.",
       tags: ["React", "Flask", "MariaDB", "Secure Software Development"],
       uiContent: "Screenshot of Login Form",
       codeSnippet: `// Example Flask/Python backend logic
@@ -25,7 +26,7 @@ def login():
     ...`
     },
     {
-      title: "Graph Cycle Detector",
+      title: "Dijkstra Implementation in C++",
       description: "A C++ tool optimized for memory efficiency. It detects cycles in large directed graphs using a custom Depth First Search algorithm, handling up to 50k nodes.",
       tags: ["C++", "Data  Structures", "Algoirithms", "Resource Efficency"],
       uiContent: "Console Output / Visualization",
@@ -45,7 +46,17 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
     recStack[v] = false; 
     return false;
 }`
-    }
+    },
+    {
+      title: "Zip and Unzip in C++",
+      description: "C++",
+      tags: ["C++", "Data Structures", "Algorithms", "Data Compression"],
+      uiContent: "Console Output / Visualization",
+      codeSnippet: `
+        Hello world!
+
+      `
+    },
   ];
 
   return (
@@ -66,7 +77,7 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
       <section className="mb-24">
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Core Technologies</h2>
         <div className="flex flex-wrap gap-4 font-mono text-neutral-300">
-           {["C++", "Python", "Java", "React", "Next.js", "Flask", "SQL", "NumPy", "TensorFlow", "Cybersecurity"].map(tech => (
+           {["C++", "Python", "Java", "React", "Next.js", "Flask", "SQL", "NumPy", "TensorFlow", "Cybersecurity", "Linux", "CLI"].map(tech => (
              <div key={tech} className="border border-neutral-700 px-4 py-2 rounded hover:border-accent-cyan hover:text-accent-cyan transition-colors cursor-default">
                {tech}
              </div>
@@ -84,6 +95,8 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
       <section className="mb-24">
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Education & Benchmarks</h2>
         <Education />
+        <br />
+        <Certifications />
       </section>
 
       {/* Binary Bears Information */}
