@@ -76,7 +76,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
           {view === "ui" ? (
             // === IMAGE VIEW ===
             <Image 
-              src=/jstowers1.github.io/{project.image} 
+              src={project.image} 
               alt={project.title}
               fill
               className="object-cover"
