@@ -3,6 +3,7 @@ import CompetitiveProgramming from "./components/CompetitiveProgramming";
 import ExperienceLog          from "./components/ExperienceLog";
 import Education              from "./components/Education"; 
 import ProjectCard            from "./components/ProjectCard";
+import ContactSection         from "./components/ContactSection";
 
 export default function Home() {
   // Mock Data - In a real app, this might come from a JSON file or database
@@ -100,10 +101,8 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
         </div>
       </section>
 
-      {/* Simple Footer */}
-      <footer className="mt-32 pt-8 border-t border-neutral-800 font-mono text-neutral-500 text-sm">
-        <p>user@portfolio:~$ <span className="text-green-500">./contact_me</span></p>
-      </footer>
+      {/* Contact Section */}
+      <ContactSection />
 
     </main>
   );
