@@ -1,7 +1,8 @@
-import TextRotator   from "./components/TextRotator";
-import ExperienceLog from "./components/ExperienceLog";
-import Education     from "./components/Education"; 
-import ProjectCard   from "./components/ProjectCard";
+import TextRotator            from "./components/TextRotator";
+import CompetitiveProgramming from "./components/CompetitiveProgramming";
+import ExperienceLog          from "./components/ExperienceLog";
+import Education              from "./components/Education"; 
+import ProjectCard            from "./components/ProjectCard";
 
 export default function Home() {
   // Mock Data - In a real app, this might come from a JSON file or database
@@ -82,6 +83,11 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
       <section className="mb-24">
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Education & Benchmarks</h2>
         <Education />
+      </section>
+
+      {/* Binary Bears Information */}
+      <section className="mb-24">
+        <CompetitiveProgramming />
       </section>
 
       {/* Projects Section */}

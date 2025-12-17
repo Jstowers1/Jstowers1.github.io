@@ -36,7 +36,8 @@ const history: Job[] = [
     description: [
       "Developed and integrated a custom, mobile first LMS.",
       "Utilized NodeJS, Bootstrap5, and MySQL to create a full-stack application from the ground up.",
-      "Worked directly under the CEO to improve company systems."
+      "Worked directly under the CEO to improve company systems.",
+      "Designed entire systems using Figma."
     ]
   },
 ];
