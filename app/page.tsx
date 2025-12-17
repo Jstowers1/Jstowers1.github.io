@@ -1,5 +1,6 @@
 import TextRotator   from "./components/TextRotator";
 import ExperienceLog from "./components/ExperienceLog";
+import Education     from "./components/Education"; 
 import ProjectCard   from "./components/ProjectCard";
 
 export default function Home() {
@@ -71,10 +72,16 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Experience */}
       <section className="mb-24">
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Commit History</h2>
         <ExperienceLog />
+      </section>
+
+      {/* Education */}
+      <section className="mb-24">
+        <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Education & Benchmarks</h2>
+        <Education />
       </section>
 
       {/* Projects Section */}

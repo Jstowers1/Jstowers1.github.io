@@ -1,5 +1,5 @@
 interface Job {
-  id: string;
+  id: string;    
   date: string;
   role: string;
   company: string;
@@ -77,9 +77,12 @@ export default function ExperienceLog() {
             <p className="font-mono text-sm text-neutral-500 mb-4">
               @ {job.company}
             </p>
-            <ul className="list-disc ml-4 space-y-2 text-neutral-400 text-sm marker:text-neutral-700">
+            <ul className="space-y-2 text-neutral-400 text-sm">
               {job.description.map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={i} className="flex gap-2">
+                  <span className="text-accent-cyan font-mono">{">"}</span>
+                  {item}
+              </li>
               ))}
             </ul>
           </div>
