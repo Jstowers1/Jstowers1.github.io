@@ -1,4 +1,6 @@
-import ProjectCard from "./components/ProjectCard";
+import TextRotator   from "./components/TextRotator";
+import ExperienceLog from "./components/ExperienceLog";
+import ProjectCard   from "./components/ProjectCard";
 
 export default function Home() {
   // Mock Data - In a real app, this might come from a JSON file or database
@@ -52,23 +54,27 @@ bool isCyclicUtil(int v, bool visited[], bool *recStack) {
           Hello, I'm <span className="text-accent-cyan">Johnathan Stowers</span>.
         </h1>
         <div className="font-mono text-xl md:text-2xl text-neutral-400 h-8 flex items-center">
-          <span className="mr-2">I work with:</span>
-          <span className="text-accent-purple bg-neutral-800 px-2 py-1 rounded">
-            Full-Stack Solutions, Efficent C++ Algorithms, AI Engineering
-          </span>
+          <span className="mr-2">I build:</span>
+          <TextRotator />
         </div>
       </section>
-
+      
       {/* Tech Stack Bar */}
       <section className="mb-24">
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Core Technologies</h2>
         <div className="flex flex-wrap gap-4 font-mono text-neutral-300">
-           {["React", "Next.js", "C++", "Python", "Java", "Flask", "SQL", "Cybersecurity"].map(tech => (
+           {["C++", "Python", "Java", "React", "Next.js", "Flask", "SQL", "NumPy", "TensorFlow", "Cybersecurity"].map(tech => (
              <div key={tech} className="border border-neutral-700 px-4 py-2 rounded hover:border-accent-cyan hover:text-accent-cyan transition-colors cursor-default">
                {tech}
              </div>
            ))}
         </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="mb-24">
+        <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Commit History</h2>
+        <ExperienceLog />
       </section>
 
       {/* Projects Section */}
