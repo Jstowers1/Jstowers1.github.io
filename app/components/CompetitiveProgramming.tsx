@@ -16,7 +16,7 @@ const competitions: Competition[] = [
   },
   {
     name: "2026 Binary Bears Member",
-    role: "Captian",
+    role: "Captain",
     rank: "Pending",
     date: "Nov 2026",
     status: "upcoming",
