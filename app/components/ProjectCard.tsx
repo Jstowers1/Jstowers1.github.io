@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface ProjectProps {
   title: string;
   description: string;
   tags: string[];
   codeSnippet: string;
-  uiContent: string;
+  image: string;
 }
 
 export default function ProjectCard({ project }: { project: ProjectProps }) {
@@ -15,6 +16,8 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
 
   return (
     <div className="border border-neutral-700 bg-neutral-800 rounded-lg overflow-hidden mb-12 shadow-xl">
+      
+      {/* Header */}
       <div className="flex justify-between items-center p-4 border-b border-neutral-700 bg-neutral-900">
         <h3 className="font-mono text-xl font-bold text-neutral-100">
           {project.title}
@@ -25,7 +28,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
             onClick={() => setView("ui")}
             className={`px-3 py-1 transition-colors ${
               view === "ui" 
-                ? "bg-accent-purple text-white" // Using the CSS-defined color
+                ? "bg-accent-purple text-white" 
                 : "bg-neutral-900 text-neutral-400 hover:text-white"
             }`}
           >
@@ -35,7 +38,7 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
             onClick={() => setView("code")}
             className={`px-3 py-1 transition-colors ${
               view === "code" 
-                ? "bg-accent-cyan text-neutral-900 font-bold" // Using the CSS-defined color
+                ? "bg-accent-cyan text-neutral-900 font-bold" 
                 : "bg-neutral-900 text-neutral-400 hover:text-white"
             }`}
           >
@@ -44,8 +47,13 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
         </div>
       </div>
 
+      {/* THE GRID CONTAINER */}
       <div className="grid md:grid-cols-2 gap-0">
-        <div className="p-6 border-r border-neutral-700">
+        
+        {/* LEFT COLUMN (The Driver)
+            This column has no height restrictions. It grows as much as the text needs.
+            Because it is a grid sibling, it stretches the Right Column to match. */}
+        <div className="p-6 border-r border-neutral-700 flex flex-col justify-center">
           <p className="font-sans text-neutral-300 mb-4 leading-relaxed">
             {project.description}
           </p>
@@ -58,17 +66,34 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
           </div>
         </div>
 
-        <div className="bg-black p-6 font-mono text-sm overflow-x-auto min-h-[250px] flex items-center">
+        {/* RIGHT COLUMN (The Follower) 
+            1. 'relative': Establishes the boundary for absolute children.
+            2. 'min-h-[300px]': Ensures the card is at least 300px tall, 
+               even if the description on the left is only one sentence.
+        */}
+        <div className="bg-black relative min-h-[300px] w-full">
+          
           {view === "ui" ? (
-            <div className="w-full h-full flex flex-col items-center justify-center text-accent-purple border-2 border-dashed border-neutral-800 rounded p-4">
-              <span className="text-4xl mb-2">🖥️</span>
-              <p>{project.uiContent}</p>
-            </div>
+            // === IMAGE VIEW ===
+            <Image 
+              src={project.image} 
+              alt={project.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           ) : (
-            <pre className="text-neutral-300 w-full">
-              <code>{project.codeSnippet}</code>
-            </pre>
+            // === CODE VIEW ===
+            // 'absolute inset-0' pins this div to the top/bottom/left/right 
+            // of the Right Column. It CANNOT grow the parent.
+            // 'overflow-auto' enables the scrollbar.
+            <div className="absolute inset-0 overflow-auto p-6 custom-scrollbar">
+              <pre className="text-neutral-300 font-mono text-xs leading-relaxed whitespace-pre-wrap break-words">
+                <code>{project.codeSnippet}</code>
+              </pre>
+            </div>
           )}
+          
         </div>
       </div>
     </div>
