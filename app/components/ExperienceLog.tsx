@@ -24,7 +24,7 @@ const history: Job[] = [
     role: "Reading Tutor",
     company: "America Reads America Counts",
     description: [
-      "Facillitated weekly reading sessions for children aged 6-8.",
+      "Facilitated weekly reading sessions for children aged 6-8.",
       "Utilized interactive and innovative techniques to retain attention while improving comprehension."
     ]
   },
