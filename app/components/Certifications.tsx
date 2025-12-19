@@ -26,9 +26,6 @@ const certs: Cert[] = [
 export default function Certifications() {
   return (
     <div className="max-w-3xl mx-auto mb-24">
-      <h2 className="font-mono text-sm text-neutral-500 mb-8 uppercase tracking-widest border-b border-neutral-800 pb-2">
-        Verified Credentials
-      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {certs.map((cert, index) => (

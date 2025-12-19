@@ -66,7 +66,7 @@ export default function CompetitionLog() {
                 <div className="flex items-start gap-3">
                   <span className="text-accent-cyan mt-1">▹</span>
                   <p className="text-xs text-neutral-300 font-mono">
-                    <strong className="text-white">Efficency:</strong> Writing efficent solutions in Python that handle vasts amount of data.
+                    <strong className="text-white">Efficency:</strong> Writing efficent solutions in Python that handle vasts amount of data in a short period of time.
                   </p>
                 </div>
               </div>

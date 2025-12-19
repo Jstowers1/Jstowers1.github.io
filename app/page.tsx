@@ -131,6 +131,7 @@ map<char, int> buildWeights(ifstream& inFile){
         <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Education & Benchmarks</h2>
         <Education />
         <br />
+        <h2 className="font-mono text-sm text-neutral-500 mb-6 uppercase tracking-widest">Verified Credentials</h2>
         <Certifications />
       </section>
 
