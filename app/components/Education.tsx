@@ -66,11 +66,6 @@ export default function Education() {
               <span className="text-neutral-400">Linear Algebra</span>
               <span className="text-neutral-600">In Progress</span>
             </div>
-
-            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-neutral-700 pl-3 py-1">
-              <span className="text-neutral-400">Probability & Mathematical Statistics</span>
-              <span className="text-neutral-600">In Progress</span>
-            </div>
           </div>
 
         </div>
