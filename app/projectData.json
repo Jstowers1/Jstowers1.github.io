@@ -38,7 +38,7 @@
   },
   {
     "title": "Shadow Killer Game",
-    "description": "2nd Place winner of Mercer's Game Development Club's first 2026 gamejam. It features a custom lighting engine developed in Godot. Playable at https://jstowers1.itch.io/shadow-killer",
+    "description": "2nd Place winner of Mercer's Game Development Club's first 2026 gamejam. It features a custom 2D lighting engine developed in Godot.",
     "tags": [
       "Godot",
       "Optimization",
