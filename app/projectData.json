@@ -1,0 +1,55 @@
+[
+  {
+    "title": "Secure Login System",
+    "description": "A full-stack authentication system focusing on SQL injection prevention and secure database management. I utilized MariaDB for storage and Flask for the backend logic. Made for a public demonstration that deepened class understanding of secure data management.",
+    "tags": [
+      "React",
+      "Flask",
+      "MariaDB",
+      "Secure Software Development"
+    ],
+    "image": "/cysInjection.png",
+    "codeSnippet": "\n\n#Route made for the insecure submission, this does NOT protect against SQLInjection\n@app.route('/submitInsec', methods=['POST'])\ndef submitInsec():\n    data = request.get_json()\n    name = data.get('name')\n    email = data.get('email')\n    password = data.get('password')\n    query = (f\"INSERT INTO users (name, email, password) \"\n             f\"VALUES ('{name}', '{email}', '{password}')\"\n            )\n\n    try:\n        #Exeute the query, return the most recent addition\n        db.session.execute(text(query))\n        db.session.commit()\n        recentUser = db.session.execute(db.select(Submission).order_by(Submission.userID.desc()).limit(1)).scalar_one_or_none()\n        print(f\"Executed Query: {query}\", file = sys.stdout)\n\n        return jsonify({\"message\":f\"Registered new user! Welcome to the database, {recentUser.name}\"})\n    except Exception as e:\n        print(f\"Query not executed??? Here's why: {e}\", file = sys.stdout)\n        db.session.rollback()\n        return jsonify({\"message\":\"No query executed... sorry!\"})\n\n    ..."
+  },
+  {
+    "title": "Dijkstra Implementation in C++",
+    "description": "A C++ project that works with Graphs. It builds a graph off of an input file, then builds a summary table using Dijkstras Algorithm. Finally, it detects all cycles in a directed graph using a custom Depth First Search algorithm.",
+    "tags": [
+      "C++",
+      "Data  Structures",
+      "Algoirithms",
+      "Resource Efficency",
+      "Graphs"
+    ],
+    "image": "/dijkstra.png",
+    "codeSnippet": " //Small, Obsfucated Snippet for academic hoensty reasons. Not accurate to submitted assignment.\n//Builds the information of the current path\nvector<string> buildCycle(vector<string>& currPath, string neighbor){\n\t//Get the index of the starting vertex in the cycle\n\tint start = searchVector(currPath, neighbor);\n\n\t//Build the vector of strings that represent the cycle itself\n\tvector<string> cycle;\n\tcycle.reserve(currPath.size()-start);\n\tfor(int i = start; i < currPath.size(); i++){\n\t\tcycle.push_back(currPath.at(i));\n\t}\n\t\n}\n"
+  },
+  {
+    "title": "Zip and Unzip in C++",
+    "description": "A C++ project that compresses and uncompresses text documents. It uses Huffman Encoding to build an output file, and a map to rebuild the uncompressed file.",
+    "tags": [
+      "C++",
+      "Data Structures",
+      "Algorithms",
+      "Data Compression"
+    ],
+    "image": "/huffman.png",
+    "codeSnippet": " //Small, Obsfucated Snippet for academic hoensty reasons. Not accurate to submitted assignment.\n//Builds a map that maps a character and its weight in the passed input file\n//The weight represents how many times it appears within the file\nmap<char, int> buildWeights(ifstream& inFile){\n\tmap<char, int> chars;\n\tchars['\\n'] = 0;\n\tstring line;\n\twhile(getline(inFile, line)){\n\t\tfor(int i = 0; i < line.size(); i++){\n\t\t\t//If the character isn't in the map\n\t\t\tif(chars.find(line[i]) == chars.end()){\n\t\t\t\tchars[line[i]] = 1;\n\t\t\t}\n\t\t\t//If the character is in the map\n\t\t\telse {\n\t\t\t\tchars[line[i]]++;\n\t\t\t}\n\t\t}\n\t\tchars['\\n']++;\n\t}\n\treturn chars;\n}\n      "
+  },
+  {
+    "title": "Shadow Killer Game",
+    "description": "2nd Place winner of Mercer's Game Development Club's first 2026 gamejam. It features a custom lighting engine developed in Godot. Playable at https://jstowers1.itch.io/shadow-killer",
+    "tags": [
+      "Godot",
+      "Optimization",
+      "Game Development",
+      "Technical Direction"
+    ],
+    "image": "/shadowKiller.png",
+    "link": {
+      "url": "https://jstowers1.itch.io/shadow-killer",
+      "label": "Play on itch.io ↗"
+    },
+    "codeSnippet": "#A small look at the code behind the lighting engine seen in game.\n  #Calculate the shadow stretch (To the side of the box)\n\tfor light in allLights:\n\t\t#Get the distance from the light \n\t\tvar lightPos = light.global_position\n\t\t\n\t\tvar localCenter = Vector2.ZERO\n\t\tfor point in basePolygon:\n\t\t\tlocalCenter += point\n\t\tlocalCenter /= basePolygon.size()\n\t\tvar globalCenter = to_global(localCenter)\n\t\t\n\t\tvar lightRadius = light.lightRadius\n\t\tvar direction = lightPos.direction_to(globalCenter)\n\t\tvar distance = globalCenter.distance_to(lightPos)\n\t\t\t\t\n\t\t#Only cast the shadow if within light's radius\n\t\tif distance > lightRadius:\n\t\t\tcontinue\n\n\t\t#Calculate opacity\n\t\tvar distRatio = distance/lightRadius\n\t\tvar alpha = 1.0 - distRatio\n\t\talpha = clamp(alpha, 0.0, 1.0)\n\t\t\n\t\t#Calculate how far and fast the shadow should stretch\n\t\tvar stretchSpeed  = 0.45\n\t\tvar stretchLength = (distance*4) * stretchSpeed\n      "
+  }
+]
