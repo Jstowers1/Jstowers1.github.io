@@ -35,15 +35,15 @@ export default function Education() {
               <span className="text-green-400 font-bold">Grade: A</span>
             </div>
 
-            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-neutral-700 pl-3 py-1">
-              <span className="text-neutral-400">Artifical Intelligence</span>
-              <span className="text-neutral-600">In Progress</span>
+            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
+              <span className="text-neutral-300">Artifical Intelligence</span>
+              <span className="text-green-400">Grade: A</span>
             </div>
 
-            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-neutral-700 pl-3 py-1">
-              <span className="text-neutral-400">Application Development and Deployement</span>
-              <span className="text-neutral-600">In Progress</span>
-            </div>
+            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
+              <span className="text-neutral-300">Application Development and Deployment</span>
+              <span className="text-green-400">Grade: A</span>
+            </div> 
           </div>
 
           {/* Math Classes Benchmarks */}
@@ -57,17 +57,12 @@ export default function Education() {
               <span className="text-green-400 font-bold">Grade: A</span>
             </div>
 
-            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
-              <span className="text-neutral-300">Calculus II</span>
-              <span className="text-400 font-bold">Grade: B</span>
+             <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
+              <span className="text-neutral-300">Linear Algebra</span>
+              <span className="text-green-400 font-bold">Grade: A</span>
             </div>
 
-            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-neutral-700 pl-3 py-1">
-              <span className="text-neutral-400">Linear Algebra</span>
-              <span className="text-neutral-600">In Progress</span>
-            </div>
           </div>
-
         </div>
 
         {/* ==========================================
