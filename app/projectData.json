@@ -10,7 +10,7 @@
     ],
     "image": "/cysInjection.png",
     "link": {
-      "url": "https://github.com/Jstowers1",
+      "url": "https://github.com/Jstowers1/CYS223SQLInjection",
       "label": "View on GitHub ↗"
     },
     "codeSnippet": "\n\n#Route made for the insecure submission, this does NOT protect against SQLInjection\n@app.route('/submitInsec', methods=['POST'])\ndef submitInsec():\n    data = request.get_json()\n    name = data.get('name')\n    email = data.get('email')\n    password = data.get('password')\n    query = (f\"INSERT INTO users (name, email, password) \"\n             f\"VALUES ('{name}', '{email}', '{password}')\"\n            )\n\n    try:\n        #Execute the query, return the most recent addition\n        db.session.execute(text(query))\n        db.session.commit()\n        recentUser = db.session.execute(db.select(Submission).order_by(Submission.userID.desc()).limit(1)).scalar_one_or_none()\n        print(f\"Executed Query: {query}\", file = sys.stdout)\n\n        return jsonify({\"message\":f\"Registered new user! Welcome to the database, {recentUser.name}\"})\n    except Exception as e:\n        print(f\"Query not executed??? Here's why: {e}\", file = sys.stdout)\n        db.session.rollback()\n        return jsonify({\"message\":\"No query executed... sorry!\"})\n\n    ..."
