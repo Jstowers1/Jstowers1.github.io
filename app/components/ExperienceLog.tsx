@@ -13,7 +13,7 @@ const history: Job[] = [
     role: "AI Student Researcher",
     company: "Mercer University",
     description: [
-      "Developed and trained Convulutional Neural Networks to analyze data measured by the Icecube Neutrino Observatory.",
+      "Developed and trained Convolutional Neural Networks to analyze data measured by the Icecube Neutrino Observatory.",
       "Developed Data Processing streams using NumPy to create simulation data for more accurate CNNs.",
       "Reworked and reimplemented legacy code for modern day solutions."
     ]

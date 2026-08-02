@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const phrases = [
   "Full-Stack Solutions",
-  "Efficent Algorithms",
+  "Efficient Algorithms",
   "AI Solutions",
   "Secure Architectures"
 ];

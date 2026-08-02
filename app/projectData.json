@@ -9,20 +9,24 @@
       "Secure Software Development"
     ],
     "image": "/cysInjection.png",
-    "codeSnippet": "\n\n#Route made for the insecure submission, this does NOT protect against SQLInjection\n@app.route('/submitInsec', methods=['POST'])\ndef submitInsec():\n    data = request.get_json()\n    name = data.get('name')\n    email = data.get('email')\n    password = data.get('password')\n    query = (f\"INSERT INTO users (name, email, password) \"\n             f\"VALUES ('{name}', '{email}', '{password}')\"\n            )\n\n    try:\n        #Exeute the query, return the most recent addition\n        db.session.execute(text(query))\n        db.session.commit()\n        recentUser = db.session.execute(db.select(Submission).order_by(Submission.userID.desc()).limit(1)).scalar_one_or_none()\n        print(f\"Executed Query: {query}\", file = sys.stdout)\n\n        return jsonify({\"message\":f\"Registered new user! Welcome to the database, {recentUser.name}\"})\n    except Exception as e:\n        print(f\"Query not executed??? Here's why: {e}\", file = sys.stdout)\n        db.session.rollback()\n        return jsonify({\"message\":\"No query executed... sorry!\"})\n\n    ..."
+    "link": {
+      "url": "https://github.com/Jstowers1",
+      "label": "View on GitHub ↗"
+    },
+    "codeSnippet": "\n\n#Route made for the insecure submission, this does NOT protect against SQLInjection\n@app.route('/submitInsec', methods=['POST'])\ndef submitInsec():\n    data = request.get_json()\n    name = data.get('name')\n    email = data.get('email')\n    password = data.get('password')\n    query = (f\"INSERT INTO users (name, email, password) \"\n             f\"VALUES ('{name}', '{email}', '{password}')\"\n            )\n\n    try:\n        #Execute the query, return the most recent addition\n        db.session.execute(text(query))\n        db.session.commit()\n        recentUser = db.session.execute(db.select(Submission).order_by(Submission.userID.desc()).limit(1)).scalar_one_or_none()\n        print(f\"Executed Query: {query}\", file = sys.stdout)\n\n        return jsonify({\"message\":f\"Registered new user! Welcome to the database, {recentUser.name}\"})\n    except Exception as e:\n        print(f\"Query not executed??? Here's why: {e}\", file = sys.stdout)\n        db.session.rollback()\n        return jsonify({\"message\":\"No query executed... sorry!\"})\n\n    ..."
   },
   {
     "title": "Dijkstra Implementation in C++",
     "description": "A C++ project that works with Graphs. It builds a graph off of an input file, then builds a summary table using Dijkstras Algorithm. Finally, it detects all cycles in a directed graph using a custom Depth First Search algorithm.",
     "tags": [
       "C++",
-      "Data  Structures",
-      "Algoirithms",
-      "Resource Efficency",
+      "Data Structures",
+      "Algorithms",
+      "Resource Efficiency",
       "Graphs"
     ],
     "image": "/dijkstra.png",
-    "codeSnippet": " //Small, Obsfucated Snippet for academic hoensty reasons. Not accurate to submitted assignment.\n//Builds the information of the current path\nvector<string> buildCycle(vector<string>& currPath, string neighbor){\n\t//Get the index of the starting vertex in the cycle\n\tint start = searchVector(currPath, neighbor);\n\n\t//Build the vector of strings that represent the cycle itself\n\tvector<string> cycle;\n\tcycle.reserve(currPath.size()-start);\n\tfor(int i = start; i < currPath.size(); i++){\n\t\tcycle.push_back(currPath.at(i));\n\t}\n\t\n}\n"
+    "codeSnippet": " //Small, Obfuscated Snippet for academic honesty reasons. Not accurate to submitted assignment.\n//Builds the information of the current path\nvector<string> buildCycle(vector<string>& currPath, string neighbor){\n\t//Get the index of the starting vertex in the cycle\n\tint start = searchVector(currPath, neighbor);\n\n\t//Build the vector of strings that represent the cycle itself\n\tvector<string> cycle;\n\tcycle.reserve(currPath.size()-start);\n\tfor(int i = start; i < currPath.size(); i++){\n\t\tcycle.push_back(currPath.at(i));\n\t}\n\t\n}\n"
   },
   {
     "title": "Zip and Unzip in C++",
@@ -34,7 +38,7 @@
       "Data Compression"
     ],
     "image": "/huffman.png",
-    "codeSnippet": " //Small, Obsfucated Snippet for academic hoensty reasons. Not accurate to submitted assignment.\n//Builds a map that maps a character and its weight in the passed input file\n//The weight represents how many times it appears within the file\nmap<char, int> buildWeights(ifstream& inFile){\n\tmap<char, int> chars;\n\tchars['\\n'] = 0;\n\tstring line;\n\twhile(getline(inFile, line)){\n\t\tfor(int i = 0; i < line.size(); i++){\n\t\t\t//If the character isn't in the map\n\t\t\tif(chars.find(line[i]) == chars.end()){\n\t\t\t\tchars[line[i]] = 1;\n\t\t\t}\n\t\t\t//If the character is in the map\n\t\t\telse {\n\t\t\t\tchars[line[i]]++;\n\t\t\t}\n\t\t}\n\t\tchars['\\n']++;\n\t}\n\treturn chars;\n}\n      "
+    "codeSnippet": " //Small, Obfuscated Snippet for academic honesty reasons. Not accurate to submitted assignment.\n//Builds a map that maps a character and its weight in the passed input file\n//The weight represents how many times it appears within the file\nmap<char, int> buildWeights(ifstream& inFile){\n\tmap<char, int> chars;\n\tchars['\\n'] = 0;\n\tstring line;\n\twhile(getline(inFile, line)){\n\t\tfor(int i = 0; i < line.size(); i++){\n\t\t\t//If the character isn't in the map\n\t\t\tif(chars.find(line[i]) == chars.end()){\n\t\t\t\tchars[line[i]] = 1;\n\t\t\t}\n\t\t\t//If the character is in the map\n\t\t\telse {\n\t\t\t\tchars[line[i]]++;\n\t\t\t}\n\t\t}\n\t\tchars['\\n']++;\n\t}\n\treturn chars;\n}\n      "
   },
   {
     "title": "Shadow Killer Game",
@@ -62,6 +66,10 @@
       "Application Development"
     ],
     "image": "/serverDashboard.png",
+    "link": {
+      "url": "https://github.com/Jstowers1/LunkserverManager",
+      "label": "View on GitHub ↗"
+    },
     "codeSnippet": "#The function used in the code to redeploy the docker containers.\ndef redeploy_server(self, server_id: str, recipe: dict):\n\t\t#Forcefully removes a container and rebuilds it using the provided recipe\n\t\t#Shut down\n\t\ttry:\n\t\t\tcontainer = self.client.containers.get(server_id)\n\t\t\tcontainer.remove(force=True)\n\t\texcept docker.errors.NotFound:\n\t\t\tpass\n\t\texcept Exception as e:\n\t\t\treturn {\"status\": \"error\", \"message\": f\"Failed to remove container: {str(e)}\"}\n\n\t\t#Rebuild\n\t\treturn self.start_server(\n\t\t\tserver_id=server_id,\n\t\t\timage_repo=recipe[\"image\"],\n\t\t\tports=recipe.get(\"ports\", {}),\n\t\t\tenv_vars=recipe.get(\"env\", {}),\n\t\t\tcontainer_path=recipe.get(\"container_path\", \"/data\"),\n\t\t\tnetwork_mode=\"bridge\",\n\t\t\tram_limit=recipe.get(\"ram_limit\"),\n\t\t\tautostart = False\n\t\t)"
   }
 ]

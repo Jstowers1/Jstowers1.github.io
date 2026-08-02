@@ -51,11 +51,12 @@ export default function ContactSection() {
             <div className="grid gap-4 md:grid-cols-2 max-w-lg">
               
               {/* 1. Email with Copy Logic */}
-              <button 
+              <button
                 onClick={handleCopy}
-                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-accent-purple transition-all group/btn text-left"
+                aria-label={`Copy email address ${email}`}
+                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-accent-purple transition-all group/btn text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
               >
-                <span className="text-xl">📧</span>
+                <span className="text-xl" aria-hidden="true">📧</span>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs text-neutral-500 uppercase">Email Address</div>
                   <div className="text-neutral-200 truncate">{email}</div>
@@ -66,13 +67,14 @@ export default function ContactSection() {
               </button>
 
               {/* 2. LinkedIn */}
-              <a 
-                href="https://linkedin.com/in/johnathan-stowers-04698a321" 
-                target="_blank" 
+              <a
+                href="https://linkedin.com/in/johnathan-stowers-04698a321"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-blue-500/50 transition-colors text-left"
+                aria-label="LinkedIn profile"
+                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-blue-500/50 transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
               >
-                <span className="text-xl">💼</span>
+                <span className="text-xl" aria-hidden="true">💼</span>
                 <div>
                   <div className="text-xs text-neutral-500 uppercase">LinkedIn</div>
                   <div className="text-neutral-200">/in/johnathan-stowers-04698a321</div>
@@ -80,13 +82,14 @@ export default function ContactSection() {
               </a>
 
               {/* 3. GitHub */}
-              <a 
-                href="https://github.com/Jstowers1" 
-                target="_blank" 
+              <a
+                href="https://github.com/Jstowers1"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 transition-colors text-left"
+                aria-label="GitHub profile"
+                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
               >
-                <span className="text-xl">🐙</span>
+                <span className="text-xl" aria-hidden="true">🐙</span>
                 <div>
                   <div className="text-xs text-neutral-500 uppercase">GitHub</div>
                   <div className="text-neutral-200">@Jstowers1</div>
@@ -94,12 +97,13 @@ export default function ContactSection() {
               </a>
               
               {/* 4. Resume Download (Optional) */}
-              <a 
-                href="/resume.pdf" 
-                target="_blank" 
-                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-green-500/50 transition-colors text-left"
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                aria-label="Download resume PDF"
+                className="flex items-center gap-3 p-3 bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-700 hover:border-green-500/50 transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
               >
-                <span className="text-xl">📄</span>
+                <span className="text-xl" aria-hidden="true">📄</span>
                 <div>
                   <div className="text-xs text-neutral-500 uppercase">Resume</div>
                   <div className="text-neutral-200">Download .pdf</div>

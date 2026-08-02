@@ -19,7 +19,7 @@ export default function Education() {
                 ACTIVE
               </span>
             </div>
-            <h2>Minors in Cybersecurity and Mathematics</h2>
+            <h3 className="text-neutral-300 font-mono text-xs mt-1">Minors in Cybersecurity and Mathematics</h3>
             <p className="text-neutral-500 font-mono text-xs">Mercer University</p>
             <p className="text-neutral-600 font-mono text-[10px] mt-1">Expected 2028</p>
           </div>
@@ -36,7 +36,7 @@ export default function Education() {
             </div>
 
             <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
-              <span className="text-neutral-300">Artifical Intelligence</span>
+              <span className="text-neutral-300">Artificial Intelligence</span>
               <span className="text-green-400">Grade: A</span>
             </div>
 
