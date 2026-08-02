@@ -11,7 +11,7 @@
     "image": "/cysInjection.png",
     "link": {
       "url": "https://github.com/Jstowers1/CYS223SQLInjection",
-      "label": "View on GitHub ↗"
+      "label": "View on GitHub \u2197"
     },
     "codeSnippet": "\n\n#Route made for the insecure submission, this does NOT protect against SQLInjection\n@app.route('/submitInsec', methods=['POST'])\ndef submitInsec():\n    data = request.get_json()\n    name = data.get('name')\n    email = data.get('email')\n    password = data.get('password')\n    query = (f\"INSERT INTO users (name, email, password) \"\n             f\"VALUES ('{name}', '{email}', '{password}')\"\n            )\n\n    try:\n        #Execute the query, return the most recent addition\n        db.session.execute(text(query))\n        db.session.commit()\n        recentUser = db.session.execute(db.select(Submission).order_by(Submission.userID.desc()).limit(1)).scalar_one_or_none()\n        print(f\"Executed Query: {query}\", file = sys.stdout)\n\n        return jsonify({\"message\":f\"Registered new user! Welcome to the database, {recentUser.name}\"})\n    except Exception as e:\n        print(f\"Query not executed??? Here's why: {e}\", file = sys.stdout)\n        db.session.rollback()\n        return jsonify({\"message\":\"No query executed... sorry!\"})\n\n    ..."
   },
@@ -52,7 +52,7 @@
     "image": "/shadowKiller.png",
     "link": {
       "url": "https://jstowers1.itch.io/shadow-killer",
-      "label": "Play on itch.io ↗"
+      "label": "Play on itch.io \u2197"
     },
     "codeSnippet": "#A small look at the code behind the lighting engine seen in game.\n  #Calculate the shadow stretch (To the side of the box)\n\tfor light in allLights:\n\t\t#Get the distance from the light \n\t\tvar lightPos = light.global_position\n\t\t\n\t\tvar localCenter = Vector2.ZERO\n\t\tfor point in basePolygon:\n\t\t\tlocalCenter += point\n\t\tlocalCenter /= basePolygon.size()\n\t\tvar globalCenter = to_global(localCenter)\n\t\t\n\t\tvar lightRadius = light.lightRadius\n\t\tvar direction = lightPos.direction_to(globalCenter)\n\t\tvar distance = globalCenter.distance_to(lightPos)\n\t\t\t\t\n\t\t#Only cast the shadow if within light's radius\n\t\tif distance > lightRadius:\n\t\t\tcontinue\n\n\t\t#Calculate opacity\n\t\tvar distRatio = distance/lightRadius\n\t\tvar alpha = 1.0 - distRatio\n\t\talpha = clamp(alpha, 0.0, 1.0)\n\t\t\n\t\t#Calculate how far and fast the shadow should stretch\n\t\tvar stretchSpeed  = 0.45\n\t\tvar stretchLength = (distance*4) * stretchSpeed\n      "
   },
@@ -68,8 +68,25 @@
     "image": "/serverDashboard.png",
     "link": {
       "url": "https://github.com/Jstowers1/LunkserverManager",
-      "label": "View on GitHub ↗"
+      "label": "View on GitHub \u2197"
     },
     "codeSnippet": "#The function used in the code to redeploy the docker containers.\ndef redeploy_server(self, server_id: str, recipe: dict):\n\t\t#Forcefully removes a container and rebuilds it using the provided recipe\n\t\t#Shut down\n\t\ttry:\n\t\t\tcontainer = self.client.containers.get(server_id)\n\t\t\tcontainer.remove(force=True)\n\t\texcept docker.errors.NotFound:\n\t\t\tpass\n\t\texcept Exception as e:\n\t\t\treturn {\"status\": \"error\", \"message\": f\"Failed to remove container: {str(e)}\"}\n\n\t\t#Rebuild\n\t\treturn self.start_server(\n\t\t\tserver_id=server_id,\n\t\t\timage_repo=recipe[\"image\"],\n\t\t\tports=recipe.get(\"ports\", {}),\n\t\t\tenv_vars=recipe.get(\"env\", {}),\n\t\t\tcontainer_path=recipe.get(\"container_path\", \"/data\"),\n\t\t\tnetwork_mode=\"bridge\",\n\t\t\tram_limit=recipe.get(\"ram_limit\"),\n\t\t\tautostart = False\n\t\t)"
+  },
+  {
+    "title": "SAELab: Mechanistic Interpretability Workbench",
+    "description": "A native Linux desktop app for interactive mechanistic interpretability. Four connected panels let you explore superposition, inspect and train sparse autoencoders, and run causal activation patching on a toy MLP. Built with PySide6, OpenGL-accelerated plotting, and a built-in textbook with basic and advanced reading modes. Zero network access, no telemetry, safe checkpoint loading.",
+    "tags": [
+      "PySide6",
+      "PyTorch",
+      "Mechanistic Interpretability",
+      "Desktop App",
+      "OpenGL"
+    ],
+    "image": "/SAELab.png",
+    "link": {
+      "url": "https://github.com/Jstowers1/mechInterpVisualizer",
+      "label": "View on GitHub \u2197"
+    },
+    "codeSnippet": "\"\"\"SAE model: dataclass for inference plus trainer for playground.\"\"\"\n\n@dataclass\nclass SAE:\n    \"\"\"Sparse autoencoder weights as numpy arrays.\"\"\"\n    W_enc: np.ndarray   # (d_in, d_sae)\n    b_enc: np.ndarray   # (d_sae,)\n    W_dec: np.ndarray   # (d_sae, d_in)\n    b_dec: np.ndarray   # (d_in,)\n\n    @classmethod\n    def load(cls, path: str) -> \"SAE\":\n        \"\"\"Load from safetensors, .pt, or .npy/.npz.\"\"\"\n        ext = os.path.splitext(path)[1].lower()\n        MAX_SIZE = 2 * 1024**3  # 2GB cap\n\n        if os.path.getsize(path) > MAX_SIZE:\n            raise ValueError(f\"File exceeds 2GB size cap: {path}\")\n\n        if ext == \".safetensors\":\n            return cls._load_safetensors(path)\n        elif ext == \".pt\":\n            return cls._load_torch(path)\n        elif ext in (\".npy\", \".npz\"):\n            return cls._load_numpy(path)"
   }
 ]
