@@ -89,13 +89,16 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
           
           {view === "ui" ? (
             // === IMAGE VIEW ===
-            <Image 
-              src={project.image} 
-              alt={project.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <div className="absolute inset-0 overflow-auto custom-scrollbar">
+              <Image 
+                src={project.image} 
+                alt={project.title}
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           ) : (
             // === CODE VIEW ===
             // KEY CHANGE 2: 'absolute inset-0' pins the text container to the edges 
