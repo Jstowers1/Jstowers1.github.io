@@ -17,6 +17,7 @@ interface ProjectProps {
 
 export default function ProjectCard({ project }: { project: ProjectProps }) {
   const [view, setView] = useState<"ui" | "code">("ui");
+  const [imgWide, setImgWide] = useState(true);
 
   return (
     <div className="border border-neutral-700 bg-neutral-800 rounded-lg overflow-hidden mb-12 shadow-xl">
@@ -83,26 +84,31 @@ export default function ProjectCard({ project }: { project: ProjectProps }) {
         </div>
 
         {/* Right Column: The View Window */}
-        {/* KEY CHANGE 1: We set a fixed height (h-80 or h-96). 
-            This forces the box to stay this size no matter what. */}
         <div className="bg-black relative h-80 md:h-96 w-full">
           
           {view === "ui" ? (
             // === IMAGE VIEW ===
-            <div className="absolute inset-0 overflow-x-auto overflow-y-hidden custom-scrollbar">
+            // Wide images: fill height, scroll horizontal.
+            // Tall/narrow images: fill width, scroll vertical.
+            <div className={`absolute inset-0 custom-scrollbar ${
+              imgWide
+                ? "overflow-x-auto overflow-y-hidden"
+                : "overflow-y-auto overflow-x-hidden"
+            }`}>
               <Image 
                 src={project.image} 
                 alt={project.title}
                 width={1200}
                 height={800}
-                className="h-full w-auto max-w-none"
+                onLoadingComplete={(img) => {
+                  setImgWide(img.naturalWidth >= img.naturalHeight);
+                }}
+                className={imgWide ? "h-full w-auto max-w-none" : "w-full h-auto"}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           ) : (
             // === CODE VIEW ===
-            // KEY CHANGE 2: 'absolute inset-0' pins the text container to the edges 
-            // of the parent. 'overflow-auto' adds the scrollbar.
             <div className="absolute inset-0 overflow-auto p-6 custom-scrollbar">
               <pre className="text-neutral-300 font-mono text-xs leading-relaxed whitespace-pre-wrap break-words">
                 <code>{project.codeSnippet}</code>
