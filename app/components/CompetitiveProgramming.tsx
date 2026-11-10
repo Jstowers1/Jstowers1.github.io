@@ -15,11 +15,18 @@ const competitions: Competition[] = [
     status: "completed",
   },
   {
-    name: "2026 Binary Bears Member",
+    name: "2026 CCSC SE @ East Tennessee State University",
     role: "Captain",
-    rank: "Pending",
-    date: "Nov 2026",
-    status: "upcoming",
+    rank: "#5 Overall",
+    date: "Oct 2026",
+    status: "completed",
+  },
+  {
+    name: "2026 ICPC SE @ Georgia Tech University",
+    role: "Captain",
+    rank: "#8 Regionally, 33rd Nationally",
+    date: "Oct 2026",
+    status: "completed",
   },
 ];
 
@@ -43,7 +50,7 @@ export default function CompetitionLog() {
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></div>
                 <h3 className="text-amber-400 font-mono text-xs uppercase tracking-widest">
-                  Future Captain
+                  Current Captain
                 </h3>
               </div>
               
