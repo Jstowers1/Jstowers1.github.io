@@ -10,17 +10,18 @@ const history: Job[] = [
   {
     id: "HEAD",
     date: "September 2025 - Present",
-    role: "AI Student Researcher",
+    role: "ML Student Researcher",
     company: "Mercer University",
     description: [
-      "Developed and trained Convolutional Neural Networks to analyze data measured by the Icecube Neutrino Observatory.",
-      "Developed Data Processing streams using NumPy to create simulation data for more accurate CNNs.",
-      "Reworked and reimplemented legacy code for modern day solutions."
+      "Engineered high-throughput CNN data pipelines using Python and NumPy processing large-scale cosmic ray simulation datasets from the Nobel-Winning IceCube Neutrino Observatory (5,160 optical sensors across 1km cubed of Antarctic Ice.",
+      "Architechted a distributed extraction pipeline on a HTCondor compute cluster using IceCube's I3Tray framework, transforming gigabytes of raw detector siimulations into 10x10x8 hexagonal-to-square spatial tensors for model training.",
+      "Built automated batch submission scripts for an HTCondor compute cluster, eliminating manul ajob orchestration accross distributed compute nodes.",
+      "Created training and assessment scripts to produce new Convolutional Neural Networks to do state-of-the-art research on snow-depth with datasets over six million events big.",
     ]
   },
   {
     id: "v2.0",
-    date: "August 2024 - Present",
+    date: "August 2024 - May 2026",
     role: "Reading Tutor",
     company: "America Reads America Counts",
     description: [
