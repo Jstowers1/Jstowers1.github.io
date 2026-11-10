@@ -13,13 +13,13 @@ export default function Education() {
           <div className="mb-6 border-b border-neutral-800 pb-4">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold text-neutral-200 font-sans">
-                B.S. Computer Science
+                B.S. Computer Science, B.A. Mathematics, M.S. Software Systems
               </h3>
               <span className="text-[10px] px-2 py-0.5 border border-green-900 bg-green-900/20 text-green-400 rounded font-mono">
                 ACTIVE
               </span>
             </div>
-            <h3 className="text-neutral-300 font-mono text-xs mt-1">Minors in Cybersecurity and Mathematics</h3>
+            <h3 className="text-neutral-300 font-mono text-xs mt-1">Minor in Cybersecurity</h3>
             <p className="text-neutral-500 font-mono text-xs">Mercer University</p>
             <p className="text-neutral-600 font-mono text-[10px] mt-1">Expected 2028</p>
           </div>
@@ -44,6 +44,12 @@ export default function Education() {
               <span className="text-neutral-300">Application Development and Deployment</span>
               <span className="text-green-400">Grade: A</span>
             </div> 
+
+            <div className="flex justify-between items-center text-sm font-mono border-l-2 border-green-500 pl-3 bg-neutral-800/30 py-2 pr-2 rounded-r">
+              <span className="text-neutral-300">Applications of Neural Networks</span>
+              <span className="text-green-400">Pending</span>
+            </div> 
+
           </div>
 
           {/* Math Classes Benchmarks */}
